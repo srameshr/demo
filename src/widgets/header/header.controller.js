@@ -1,12 +1,23 @@
 class HeaderCtrl {
   constructor() {
-    // Cache UI elements
-    this.$sideMenuWrapper = $(".side-menu-wrapper");
+    
+  }
+
+  init() {
+    this.$notificationsWrapper = $(".notifications-wrapper");
   }
 
   toggleSideBar(event) {
     event.preventDefault();
-    this.$sideMenuWrapper.toggleClass("toggled");
+    //this.$sideMenuWrapper.toggleClass("toggled");
+  }
+
+  setNotification(count) {
+    this.$notificationsWrapper.append(`<span class="notifications">${count}</span>`);
+  }
+
+  clearNotification() {
+    $(".notifications-wrapper .notifications").remove();
   }
 
 }

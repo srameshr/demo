@@ -1980,13 +1980,17 @@ var constructTemplate = function constructTemplate(_ref) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_controller__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_templates__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications_notifications_service__ = __webpack_require__(40);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -2001,6 +2005,7 @@ var Header = function (_HeaderCtrl) {
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
     _this.contructHeader();
+    _this.init();
     return _this;
   }
 
@@ -2016,15 +2021,28 @@ var Header = function (_HeaderCtrl) {
       //$togglerIcon.on('click', (event) => super.toggleSideBar(event));
     }
   }, {
-    key: 'listenForNotificationEvent',
-    value: function listenForNotificationEvent() {
-      var $logoutIcon = $("#logout");
+    key: 'getNotifications',
+    value: function getNotifications() {
+      var notificationsCount = __WEBPACK_IMPORTED_MODULE_2__notifications_notifications_service__["a" /* default */].getNotifications();
+      _get(Header.prototype.__proto__ || Object.getPrototypeOf(Header.prototype), 'setNotification', this).call(this, notificationsCount);
+    }
+  }, {
+    key: 'listenToclearNotifications',
+    value: function listenToclearNotifications() {
+      var _this2 = this;
+
+      var $notificationsWrapper = $(".notifications-wrapper");
+      $notificationsWrapper.on('click', function (event) {
+        return _get(Header.prototype.__proto__ || Object.getPrototypeOf(Header.prototype), 'clearNotification', _this2).call(_this2, event);
+      });
     }
   }, {
     key: 'init',
     value: function init() {
+      _get(Header.prototype.__proto__ || Object.getPrototypeOf(Header.prototype), 'init', this).call(this);
+      this.getNotifications();
       this.listenForToggleEvents();
-      this.listenForNotificationEvent();
+      this.listenToclearNotifications();
     }
   }]);
 
@@ -2045,16 +2063,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var HeaderCtrl = function () {
   function HeaderCtrl() {
     _classCallCheck(this, HeaderCtrl);
-
-    // Cache UI elements
-    this.$sideMenuWrapper = $(".side-menu-wrapper");
   }
 
   _createClass(HeaderCtrl, [{
+    key: "init",
+    value: function init() {
+      this.$notificationsWrapper = $(".notifications-wrapper");
+    }
+  }, {
     key: "toggleSideBar",
     value: function toggleSideBar(event) {
       event.preventDefault();
-      this.$sideMenuWrapper.toggleClass("toggled");
+      //this.$sideMenuWrapper.toggleClass("toggled");
+    }
+  }, {
+    key: "setNotification",
+    value: function setNotification(count) {
+      this.$notificationsWrapper.append("<span class=\"notifications\">" + count + "</span>");
+    }
+  }, {
+    key: "clearNotification",
+    value: function clearNotification() {
+      $(".notifications-wrapper .notifications").remove();
     }
   }]);
 
@@ -2069,7 +2099,7 @@ var HeaderCtrl = function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return template; });
-var template = "\n<div class=\"search-wrapper\">\n    <input type=\"search\" class=\"search-field padding-horizontal\" placeholder=\"Search\"/>\n</div>\n<div class=\"actions-wrapper\">\n    <i class=\"icon ion-chatbubble-working\" /></i>\n    <i class=\"icon ion-android-notifications-none\"></i>\n    <i class=\"icon ion-person\"></i>\n</div>\n";
+var template = "\n<div class=\"search-wrapper\">\n    <input type=\"search\" class=\"search-field padding-horizontal\" placeholder=\"Search\"/>\n</div>\n<div class=\"actions-wrapper\">\n    <i class=\"icon ion-chatbubble-working\" /></i>\n    <i class=\"icon ion-android-notifications-none notifications-wrapper\"></i>\n    <i class=\"icon ion-person\"></i>\n</div>\n";
 
 /***/ }),
 /* 38 */
@@ -2112,6 +2142,22 @@ var Status = function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return template; });
 var template = "\n<div class=\"status-wrapper\">\n                <div class=\"avatar-text-area-wrapper\">\n                    <div class=\"avatar\">\n                        <img src=\"https://img.gs/ltqbpthfxz/50x50,crop/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIN4dO8kw3d4lmcghaboWsyxI3GvsSPfFcWbOEFuLIvpcbTzE\"/>\n                    </div>\n                    <div class=\"status\">\n                        <textarea placeholder=\"Write something here\"></textarea>\n                    </div>\n                </div>\n                <div class=\"actions-wrapper\">\n                    <div>\n                        <i class=\"icon ion-camera\"></i>\n                        <i class=\"icon ion-ios-videocam\"></i>\n                        <i class=\"icon ion-paper-airplane action-icon\"></i>\n                    </div>\n                </div>\n            </div>\n";
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var notificationsService = function notificationsService() {
+    return {
+        getNotifications: function getNotifications() {
+            return 10;
+        },
+        clearNotifications: function clearNotifications() {}
+    };
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (notificationsService()); // Singleton
 
 /***/ })
 /******/ ]);

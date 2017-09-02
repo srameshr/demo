@@ -4,10 +4,22 @@
 
 .main-section {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: $HEADER_BAR_HEIGHT + 30; // Height of header bar
+    justify-content: flex-start;
+    flex-direction: row;
+
+    & .side-content {
+        width: 320px;
+    }
+
+    & .section-content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: $HEADER_BAR_HEIGHT + 30; // Height of header bar
+        width: 100%;
+    }
 }
+
 
 #status {
     justify-content: center;
