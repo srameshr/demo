@@ -3058,7 +3058,7 @@
       width: 100%;
       display: flex;
       justify-content: flex-end; }
-      .status-wrapper .actions-wrapper div i {
+      .status-wrapper .actions-wrapper div i, .status-wrapper .actions-wrapper div button {
         background: white;
         color: #545454;
         width: 50px;
@@ -3069,13 +3069,15 @@
         display: flex;
         box-shadow: 1px 1px 9px 2px #bfbfbf;
         margin-right: 10px;
-        font-size: 1.5em; }
-      .status-wrapper .actions-wrapper div i:hover {
+        font-size: 1.5em;
+        cursor: pointer; }
+      .status-wrapper .actions-wrapper div i:hover, .status-wrapper .actions-wrapper div button:hover {
         transition: all 200ms ease-in;
         transform: scale(1.5); }
-      .status-wrapper .actions-wrapper div i.action-icon {
+      .status-wrapper .actions-wrapper div button.action-icon {
         color: white;
-        background: #258dde; }
+        background: #258dde;
+        border: none; }
 
 .updates-wrapper {
   display: flex;

@@ -2103,7 +2103,7 @@ var HeaderCtrl = function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return template; });
-var template = "\n<div class=\"search-wrapper\">\n    <input type=\"search\" class=\"search-field padding-horizontal\" placeholder=\"Search\"/>\n</div>\n<div class=\"actions-wrapper\">\n    <i class=\"icon ion-chatbubble-working\" /></i>\n    <i class=\"icon ion-android-notifications-none notifications-wrapper\"></i>\n    <i class=\"icon ion-person\"></i>\n</div>\n";
+var template = "\n<form class=\"search-wrapper\">\n    <input type=\"search\" class=\"search-field padding-horizontal\" placeholder=\"Search\" required/>\n</form>\n<div class=\"actions-wrapper\">\n    <i class=\"icon ion-chatbubble-working\" /></i>\n    <i class=\"icon ion-android-notifications-none notifications-wrapper\"></i>\n    <i class=\"icon ion-person\"></i>\n</div>\n";
 
 /***/ }),
 /* 38 */
@@ -2121,7 +2121,7 @@ var Status = function () {
   function Status() {
     _classCallCheck(this, Status);
 
-    this.contructStatus();
+    this.init();
   }
 
   _createClass(Status, [{
@@ -2131,7 +2131,9 @@ var Status = function () {
     }
   }, {
     key: "init",
-    value: function init() {}
+    value: function init() {
+      this.contructStatus();
+    }
   }]);
 
   return Status;
@@ -2145,7 +2147,7 @@ var Status = function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return template; });
-var template = "\n<div class=\"status-wrapper\">\n                <div class=\"avatar-text-area-wrapper\">\n                    <div class=\"avatar\">\n                        <img src=\"https://img.gs/ltqbpthfxz/50x50,crop/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIN4dO8kw3d4lmcghaboWsyxI3GvsSPfFcWbOEFuLIvpcbTzE\"/>\n                    </div>\n                    <div class=\"status\">\n                        <textarea placeholder=\"Write something here\"></textarea>\n                    </div>\n                </div>\n                <div class=\"actions-wrapper\">\n                    <div>\n                        <i class=\"icon ion-camera\"></i>\n                        <i class=\"icon ion-ios-videocam\"></i>\n                        <i class=\"icon ion-paper-airplane action-icon\"></i>\n                    </div>\n                </div>\n            </div>\n";
+var template = "\n<form class=\"status-wrapper\">\n                <div class=\"avatar-text-area-wrapper\">\n                    <div class=\"avatar\">\n                        <img src=\"https://img.gs/ltqbpthfxz/50x50,crop/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIN4dO8kw3d4lmcghaboWsyxI3GvsSPfFcWbOEFuLIvpcbTzE\"/>\n                    </div>\n                    <div class=\"status\">\n                        <textarea placeholder=\"Write something here\" required></textarea>\n                    </div>\n                </div>\n                <div class=\"actions-wrapper\">\n                    <div>\n                        <i class=\"icon ion-camera\"></i>\n                        <i class=\"icon ion-ios-videocam\"></i>\n                        <button type=\"submit\" class=\"icon ion-paper-airplane action-icon\"></button>\n                    </div>\n                </div>\n            </form>\n";
 
 /***/ }),
 /* 40 */

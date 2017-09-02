@@ -54,7 +54,7 @@
             display: flex;
             justify-content: flex-end;
 
-            & i {
+            & i, & button {
                 background: white;
                 color: $ICON_BASE_COLORS;
                 width: 50px;
@@ -65,17 +65,19 @@
                 display: flex;
                 box-shadow: 1px 1px 9px 2px #bfbfbf;
                 margin-right: 10px;
-                font-size: 1.5em
+                font-size: 1.5em;
+                cursor: pointer;
             }
 
-            & i:hover {
+            & i:hover, & button:hover {
                 transition: all 200ms ease-in;
                 transform: scale(1.5); 
             }
 
-            & i.action-icon {
+            & button.action-icon {
                 color: white;
                 background: #258dde;
+                border: none;
             }
         }
     }
