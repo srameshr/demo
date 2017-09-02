@@ -3008,7 +3008,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    cursor: pointer; }
     .header-wrapper .actions-wrapper i {
       color: grey;
       font-size: 1.5em; }
@@ -3050,7 +3051,8 @@
     justify-content: center;
     width: 100%;
     margin-top: -1.6em;
-    z-index: 99; }
+    z-index: 99;
+    cursor: pointer; }
     .status-wrapper .actions-wrapper div {
       width: 100%;
       display: flex;
@@ -3112,7 +3114,8 @@
   .updates-wrapper .update-image-wrapper {
     height: 250px;
     width: 50%;
-    margin: 1em; }
+    margin: 1em;
+    z-index: 99; }
     .updates-wrapper .update-image-wrapper .update-cover {
       height: 100%;
       background-size: cover;
@@ -3123,7 +3126,9 @@
   .updates-wrapper .update-content-wrapper {
     width: 50%;
     background: #f6f6f6;
-    padding: 1em; }
+    padding: 1.5em 1em;
+    margin-top: -1.1em;
+    border-radius: 5px; }
     .updates-wrapper .update-content-wrapper .update-content-header {
       align-items: center;
       display: flex;

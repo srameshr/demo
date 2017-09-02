@@ -56,6 +56,7 @@
         height: 250px;
         width: 50%; // responsive
         margin: 1em;
+        z-index: 99;
         
         & .update-cover {
             height: 100%;
@@ -68,9 +69,11 @@
     }
 
     & .update-content-wrapper {
-        width: 50%; // Responsive variable
+        width: 50%;
         background: #f6f6f6;
-        padding: 1em;
+        padding: 1.5em 1em;
+        margin-top: -1.1em;
+        border-radius: 5px;
 
         & .update-content-header {
             align-items: center;
