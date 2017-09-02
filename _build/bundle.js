@@ -764,14 +764,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_widgets_header_header_component__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_widgets_feed_feed_component__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_widgets_status_status_component__ = __webpack_require__(38);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
 
+
+
+var App = function () {
+  function App() {
+    _classCallCheck(this, App);
+
+    this.init();
+  }
+
+  _createClass(App, [{
+    key: 'mountComponents',
+    value: function mountComponents() {
+      new __WEBPACK_IMPORTED_MODULE_0__src_widgets_header_header_component__["a" /* default */]();
+      new __WEBPACK_IMPORTED_MODULE_2__src_widgets_status_status_component__["a" /* default */]();
+      new __WEBPACK_IMPORTED_MODULE_1__src_widgets_feed_feed_component__["a" /* default */]().showFeed();
+    }
+  }, {
+    key: 'init',
+    value: function init() {
+      this.mountComponents();
+    }
+  }]);
+
+  return App;
+}();
 
 $(document).ready(function () {
-  new __WEBPACK_IMPORTED_MODULE_0__src_widgets_header_header_component__["a" /* default */]();
-  new __WEBPACK_IMPORTED_MODULE_2__src_widgets_status_status_component__["a" /* default */]();
-  new __WEBPACK_IMPORTED_MODULE_1__src_widgets_feed_feed_component__["a" /* default */]().showFeed();
+  new App();
 });
 
 /***/ }),
@@ -2130,9 +2156,51 @@ var Status = function () {
       $("#status").html(__WEBPACK_IMPORTED_MODULE_0__status_template__["a" /* template */]);
     }
   }, {
+    key: "bindToStatusForm",
+    value: function bindToStatusForm(event) {
+      $(".update-status").on('click', function (event) {
+        var $statusForm = $("form name=['status-form']");
+        var formData = $statusForm.serializeArray();
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = formData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var _step$value = _step.value,
+                name = _step$value.name,
+                value = _step$value.value;
+
+            if (!value) {
+              return false;
+            }
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      });
+    }
+  }, {
     key: "init",
     value: function init() {
       this.contructStatus();
+      this.bindToStatusForm();
+    }
+  }, {
+    key: "valima",
+    value: function valima() {
+      alert("foo");
     }
   }]);
 
@@ -2147,7 +2215,7 @@ var Status = function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return template; });
-var template = "\n<form class=\"status-wrapper\">\n                <div class=\"avatar-text-area-wrapper\">\n                    <div class=\"avatar\">\n                        <img src=\"https://img.gs/ltqbpthfxz/50x50,crop/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIN4dO8kw3d4lmcghaboWsyxI3GvsSPfFcWbOEFuLIvpcbTzE\"/>\n                    </div>\n                    <div class=\"status\">\n                        <textarea placeholder=\"Write something here\" required></textarea>\n                    </div>\n                </div>\n                <div class=\"actions-wrapper\">\n                    <div>\n                        <i class=\"icon ion-camera\"></i>\n                        <i class=\"icon ion-ios-videocam\"></i>\n                        <button type=\"submit\" class=\"icon ion-paper-airplane action-icon\"></button>\n                    </div>\n                </div>\n            </form>\n";
+var template = "\n<form class=\"status-wrapper\">\n                <div class=\"avatar-text-area-wrapper\">\n                    <div class=\"avatar\">\n                        <img src=\"https://img.gs/ltqbpthfxz/50x50,crop/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIN4dO8kw3d4lmcghaboWsyxI3GvsSPfFcWbOEFuLIvpcbTzE\"/>\n                    </div>\n                    <div class=\"status\">\n                        <textarea placeholder=\"Write something here\" required name=\"status\"></textarea>\n                    </div>\n                </div>\n                <div class=\"actions-wrapper\">\n                    <div>\n                        <i class=\"icon ion-camera\"></i>\n                        <i class=\"icon ion-ios-videocam\"></i>\n                        <button type=\"submit\" class=\"icon ion-paper-airplane action-icon update-status\"></button>\n                    </div>\n                </div>\n            </form>\n";
 
 /***/ }),
 /* 40 */
