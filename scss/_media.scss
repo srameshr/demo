@@ -1,0 +1,26 @@
+@media screen and (max-width: 720px) {
+  .status-wrapper {
+      width: 90% !important;
+  }
+
+  .header-updates-wrapper {
+       width: 90% !important;
+  }
+
+  .update-image-wrapper {
+      width: 90% !important;
+  }
+
+  .update-content-wrapper {
+      width: 90% !important;
+  }
+
+  .header-wrapper .search-wrapper .search-field {
+      width : 90% !important;
+      margin-left: 0 !important;
+  }
+
+  .side-menu-wrapper {
+      display: none !important;
+  }
+}
