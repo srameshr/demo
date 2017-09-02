@@ -1952,10 +1952,14 @@ var Updates = function () {
 var get = async function get(_ref) {
     var url = _ref.url;
 
-    var _ref2 = await __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url),
-        data = _ref2.data;
+    try {
+        var _ref2 = await __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url),
+            data = _ref2.data;
 
-    return data;
+        return data;
+    } catch (e) {
+        throw Error(e);
+    }
 };
 
 /***/ }),
