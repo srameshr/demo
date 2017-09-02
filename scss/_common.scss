@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 100px; // Height of header bar
+    margin-top: $HEADER_BAR_HEIGHT + 30; // Height of header bar
 }
 
 #status {

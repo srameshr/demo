@@ -18,7 +18,7 @@ class Feed {
         try {
             const feeds = await this.getFeed(); 
             const updates = this.updates.getUpdates(feeds);
-            $("#feeds").append(updates);
+            $("#feeds").empty().append(updates);
         } catch (e) {
             throw e;
         }

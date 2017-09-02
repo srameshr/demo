@@ -1,12 +1,12 @@
 .header-wrapper {
-    height: 70px;
+    height: $HEADER_BAR_HEIGHT;
     top: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-     -webkit-box-shadow: 0 8px 6px -6px #dedede;
+    -webkit-box-shadow: 0 8px 6px -6px #dedede;
     -moz-box-shadow: 0 8px 6px -6px #dedede;
     box-shadow: 0 8px 6px -6px #dedede;
     position: fixed;

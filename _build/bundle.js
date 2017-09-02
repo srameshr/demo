@@ -811,7 +811,7 @@ var Feed = function () {
             try {
                 var feeds = await this.getFeed();
                 var updates = this.updates.getUpdates(feeds);
-                $("#feeds").append(updates);
+                $("#feeds").empty().append(updates);
             } catch (e) {
                 throw e;
             }
