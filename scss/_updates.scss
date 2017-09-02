@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 1.5em;
+    margin-bottom: 1em;
     
     & .header-updates-wrapper {
         display: flex;
@@ -102,7 +103,23 @@
                 display: flex;
 
                 & div {
-                    margin-right: 15px;
+                    margin-right: 0px;
+                    margin-left: 15px;
+                     & span.reactions {
+                         width: 30px;
+                        height: 30px;
+                        background: white;
+                        display: inline-block;
+                        border-radius: 50%;
+                        padding: 5px;
+                        margin-left: -12px;
+                        box-shadow: 1px 1px 1px 1px #e2e2e2;
+
+                        &:hover {
+                            transition: all 200ms ease-in;
+                            transform: scale(1.5); 
+                        }
+                     }
                 }
 
                 & div.reactions-by {

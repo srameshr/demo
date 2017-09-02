@@ -3009,7 +3009,8 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #545454; }
     .header-wrapper .actions-wrapper i {
       color: grey;
       font-size: 1.5em; }
@@ -3059,7 +3060,7 @@
       justify-content: flex-end; }
       .status-wrapper .actions-wrapper div i {
         background: white;
-        color: 'black';
+        color: #545454;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -3080,7 +3081,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1.5em; }
+  padding-top: 1.5em;
+  margin-bottom: 1em; }
   .updates-wrapper .header-updates-wrapper {
     display: flex;
     flex-direction: row;
@@ -3149,7 +3151,20 @@
         flex-direction: row;
         display: flex; }
         .updates-wrapper .update-content-wrapper .update-content-reactions .left-wrapper div {
-          margin-right: 15px; }
+          margin-right: 0px;
+          margin-left: 15px; }
+          .updates-wrapper .update-content-wrapper .update-content-reactions .left-wrapper div span.reactions {
+            width: 30px;
+            height: 30px;
+            background: white;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 5px;
+            margin-left: -12px;
+            box-shadow: 1px 1px 1px 1px #e2e2e2; }
+            .updates-wrapper .update-content-wrapper .update-content-reactions .left-wrapper div span.reactions:hover {
+              transition: all 200ms ease-in;
+              transform: scale(1.5); }
         .updates-wrapper .update-content-wrapper .update-content-reactions .left-wrapper div.reactions-by {
           color: grey;
           font-size: 0.8em;

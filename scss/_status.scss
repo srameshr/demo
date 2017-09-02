@@ -48,7 +48,7 @@
          margin-top: -1.6em;
          z-index: 99;
          cursor: pointer;
-         
+
         & div {
             width: 100%;
             display: flex;
@@ -56,7 +56,7 @@
 
             & i {
                 background: white;
-                color: 'black';
+                color: $ICON_BASE_COLORS;
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;

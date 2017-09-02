@@ -26,8 +26,8 @@ export const constructTemplate = ({type, action, at, user, content }) => (
                 <div class="update-content-reactions">
                     <div class="left-wrapper">
                         <div>
-                            <span>❤️</span>
-                            <span>😂</span>
+                            <span class="reactions">❤️</span>
+                            <span class="reactions">😂</span>
                         </div>
                         <div class="reactions-by">
                             <span>${content.by}</span>
